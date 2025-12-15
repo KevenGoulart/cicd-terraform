@@ -14,6 +14,12 @@ jobs:
     container:
       image: node:20
     steps:
+      - name: Install PNPM
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: false
+
       - uses: actions/checkout@v4
         with:
           node-version: 20

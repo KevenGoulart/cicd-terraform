@@ -18,8 +18,6 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: infra/package.json
-          cache: pnpm
-          cache-dependency-path: infra/pnpm-lock.yaml
 
       - name: Enable pnpm
         uses: pnpm/action-setup/@v4

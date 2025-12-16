@@ -1,13 +1,16 @@
-name: deploy health-check api
+name: preview
 
 on:
+  pull_request:
+    branches:
+      - master
   push:
     branches:
       - master
 
 jobs:
-  iac:
-    name: IAC
+  preview:
+    name: Preview
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,8 +38,10 @@ jobs:
 
       - uses: pulumi/actions@v6
         with:
-          command: up
+          command: preview
           stack-name: KevenGoulart-org/dev
+          comment-on-pr: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           work-dir: infra
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}

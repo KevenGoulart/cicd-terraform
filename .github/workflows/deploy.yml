@@ -33,6 +33,6 @@ jobs:
       - uses: pulumi/actions@v6
         with:
           command: up
-          stack-name: KevenGoulart-org/dev
+          stack-name: KevenGoulart-org/aws-node-infra/dev
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
